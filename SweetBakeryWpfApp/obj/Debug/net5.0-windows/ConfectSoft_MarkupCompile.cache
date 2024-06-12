@@ -1,0 +1,20 @@
+﻿ConfectSoft
+
+
+winexe
+C#
+.cs
+D:\OTHER\University\4 курс\Дипломна робота\Практична реалізація\WPF APP\SweetBakeryWpfApp\obj\Debug\net5.0-windows\
+ConfectSoft
+none
+false
+TRACE;DEBUG;NET;NET5_0;NETCOREAPP
+D:\OTHER\University\4 курс\Дипломна робота\Практична реалізація\WPF APP\SweetBakeryWpfApp\App.xaml
+46-1293913661
+
+691629741609
+236-495074625
+CustomControls\BindablePasswordBox.xaml;Styles\BorderStyle.xaml;Styles\ButtonStyles.xaml;Styles\DataGridStyle.xaml;Styles\DatePickerStyle.xaml;Styles\DictionaryContainingScrollbarStyle.xaml;Styles\ImagesPath.xaml;Styles\LabelStyle.xaml;Styles\StackPanelStyle.xaml;Styles\TextFieldsStyles.xaml;Styles\TextStyles.xaml;Styles\UIColors.xaml;View\AddReportView_BakedCakes.xaml;View\DailyReportChildsView\AddSentCakesView_DR.xaml;View\DailyReportChildsView\BakedCakesView_DR.xaml;View\DailyReportChildsView\EditBakedCakesReportView_DR.xaml;View\DailyReportChildsView\EditUsedRawDataView.xaml;View\DailyReportChildsView\EditUsedRawView.xaml;View\DailyReportChildsView\SentCakesView_DR.xaml;View\DailyReportChildsView\UsedRawView_DR.xaml;View\DailyReportView.xaml;View\DashboardDataView.xaml;View\Dashboard_Admin.xaml;View\Dashboard_Confectioner.xaml;View\Dashboard_mainConfectioner.xaml;View\EditCakesInfoActionField_ED.xaml;View\EditData2cpWindow_ED.xaml;View\EditDataChildsView\CakesInfoView_ED.xaml;View\EditDataChildsView\OrderTypeInfoView_ED.xaml;View\EditDataChildsView\RawInfoView_ED.xaml;View\EditDataChildsView\ShopsInfoView_ED.xaml;View\EditDataView.xaml;View\EditRawInfoActionFieldView_Ed.xaml;View\EditShopInfoActionFieldView_ED.xaml;View\LoginView.xaml;View\RecipePage.xaml;View\RecipesView.xaml;View\SalaryView.xaml;View\SwitchUserRequestWindowView.xaml;View\UsedRawDataChildsView\EditObtainingRaw.xaml;View\UsedRawDataChildsView\ObtainingRawView_UR.xaml;View\UsedRawDataChildsView\UsedRawInfoView_UR.xaml;View\UsedRawView.xaml;View\UserProfileView.xaml;View\UsersDataView.xaml;View\UsersHistoryActivity_View.xaml;
+
+False
+

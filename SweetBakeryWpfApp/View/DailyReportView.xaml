@@ -1,0 +1,60 @@
+﻿<UserControl x:Class="SweetBakeryWpfApp.View.DailyReportView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:viewModel1="clr-namespace:SweetBakeryWpfApp.ViewModel"
+             mc:Ignorable="d" d:DesignHeight="450" d:DesignWidth="800" d:Background="White">
+    
+    <UserControl.DataContext>
+        <viewModel1:DailyReportViewModel/>
+    </UserControl.DataContext>
+
+    <Border Height="450" VerticalAlignment="Top"  Margin="5 15 0 0">
+        <Grid>
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
+                <!-- Btn for "Baked cakes" section -->
+                <RadioButton Style="{StaticResource tabButton}" Command="{Binding ShowBakedCakesViewCommand}"                                
+                             Background="{x:Null}" BorderBrush="{x:Null}" Foreground="black" Width="200" Height="50"
+                             Uid="0" Click="BakedCakesRadioButton_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock x:Name="bakedCakesTxtBlck" Text="Випечена продукція" Style="{StaticResource menuButtonText}"/>
+                    </StackPanel>
+                </RadioButton>
+
+                <!-- Btn for "Used raw" section -->
+                <RadioButton Style="{StaticResource tabButton}" Command="{Binding ShowUsedRawViewCommand}"                                
+                             Background="{x:Null}" BorderBrush="{x:Null}" Foreground="black" Width="200" Height="50"
+                             Uid="1" Click="UsedRawRadioButton_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock x:Name="usedRawTxtBlck" Foreground="{StaticResource plainTextColorGrey}"
+                                   Text="Використана сировина" Style="{StaticResource menuButtonText}"/>
+                    </StackPanel>
+                </RadioButton>
+
+                <!-- Btn for "Sent cakes" section -->
+                <RadioButton Style="{StaticResource tabButton}" Command="{Binding ShowSentCakesViewCommand}"                                
+                             Background="{x:Null}" BorderBrush="{x:Null}" Foreground="black" Width="200" Height="50"
+                             Uid="2" Click="SentCakesRadioButton_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock x:Name="sentProductionTxtBlck" Foreground="{StaticResource plainTextColorGrey}"
+                                   Text="Відправлена продукція" Style="{StaticResource menuButtonText}"/>
+                    </StackPanel>
+                </RadioButton>
+            </StackPanel>
+
+            <!-- Line for active page -->
+            <Grid x:Name="GridCursor" Width="200" Height="1" HorizontalAlignment="Left"
+                  Background="{StaticResource buttonColorBlack}" Margin="10 0 0 350"/>
+
+            <!-- Section for content -->
+            <Grid>
+                <ContentControl x:Name="CurrViewChild" Margin="0 60 0 0">
+                    <ContentControl.DataContext>
+                        <viewModel1:DailyReportViewModel/>
+                    </ContentControl.DataContext>
+                </ContentControl>
+            </Grid>
+        </Grid>
+    </Border>
+</UserControl>

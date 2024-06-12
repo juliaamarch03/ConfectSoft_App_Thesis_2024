@@ -1,0 +1,131 @@
+﻿<!-- USER PROFILE PAGE -->
+<UserControl x:Class="ConfectSoft.View.UserProfileView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" d:DesignHeight="580" d:DesignWidth="800" d:Background="White">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/> <!-- Introducing section -->
+            <RowDefinition Height="auto"/> <!-- Personal data section -->
+            <RowDefinition Height="*"/> <!-- User's address section -->
+        </Grid.RowDefinitions>
+
+        <!-- Introducing section -->
+        <Border Grid.Row="0" Style="{StaticResource userProfilePageSectionBorderStyle}">
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="180"/> <!-- Profile pic section -->
+                    <ColumnDefinition/> <!-- Introducing data section-->
+                </Grid.ColumnDefinitions>
+
+                <!-- Profile pic section -->
+                <Grid Grid.Column="0">
+                    <StackPanel>
+                        <Ellipse x:Name="profilePicEllipse" Height="100" Width="100" Margin="10">
+                            <Ellipse.Fill>
+                                <ImageBrush ImageSource="{StaticResource userProfileDefaultPic}"/>
+                            </Ellipse.Fill>
+                        </Ellipse>
+                    </StackPanel>
+                </Grid>
+
+                <!-- Introducing data section-->
+                <Grid Grid.Column="1">
+                    <StackPanel Margin="0 15 0 20">
+                        <Label x:Name="userFullNameLabel" Content="Full Name" Style="{StaticResource labelUserProfGenearalHeaderStyle}"/>
+                        <Label x:Name="userPositionLabel" Style="{StaticResource labelUserProfHeaderStyle}"/>
+                        <Label x:Name="userLocationLabel" Style="{StaticResource labelUserProfHeaderStyle}"/>
+                    </StackPanel>
+                </Grid>
+            </Grid>
+        </Border>
+
+        <!-- Personal data section -->
+        <Border Grid.Row="1" Style="{StaticResource userProfilePageSectionBorderStyle}" Margin="80 0 80 0">
+            <Grid Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"/> <!-- Title section -->
+                    <RowDefinition/> <!-- Personal data fields section -->
+                </Grid.RowDefinitions>
+
+                <!-- Title section -->
+                <Grid Grid.Row="0">
+                    <StackPanel Margin="50 10 0 0">
+                        <Label Content="Персональні дані" Style="{StaticResource labelUserProfGenearalHeaderStyle}"/>
+                    </StackPanel>
+                </Grid>
+
+                <!-- Personal data fields section -->
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid Grid.Column="0">
+                        <StackPanel Margin="50 0 0 0">
+                            <Label Content="Ім'я" Style="{StaticResource labelUserProfHeaderStyle}"/>
+                            <Label x:Name="userFirstNameLabel" Style="{StaticResource labelUserProfResultStyle}"/>
+                            <Label Content="Email адреса" Style="{StaticResource labelUserProfHeaderStyle}"/>
+                            <Label x:Name="userEmailAdressLabel" Style="{StaticResource labelUserProfResultStyle}"/>
+                            <Label Content="День народження" Style="{StaticResource labelUserProfHeaderStyle}"/>
+                            <Label x:Name="userBDayLabel" Style="{StaticResource labelUserProfResultStyle}"/>
+                        </StackPanel>
+                    </Grid>
+
+                    <Grid Grid.Column="1">
+                        <StackPanel Margin="20 0 0 0">
+                            <Label Content="Прізвище" Style="{StaticResource labelUserProfHeaderStyle}"/>
+                            <Label x:Name="userLastNameLabel" Style="{StaticResource labelUserProfResultStyle}"/>
+                            <Label Content="Номер телефону" Style="{StaticResource labelUserProfHeaderStyle}"/>
+                            <Label x:Name="userPhoneNumberLabel" Style="{StaticResource labelUserProfResultStyle}"/>
+                        </StackPanel>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </Border>
+
+        <!-- User's address section -->
+        <Border Grid.Row="2" Style="{StaticResource userProfilePageSectionBorderStyle}">
+            <Grid Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"/> <!-- Title section -->
+                    <RowDefinition/> <!-- Adress data section -->
+                </Grid.RowDefinitions>
+
+                <!-- Title section -->
+                <Grid Grid.Row="0">
+                    <StackPanel Margin="50 10 0 0">
+                        <Label Content=" Адреса" Style="{StaticResource labelUserProfGenearalHeaderStyle}"/>
+                    </StackPanel>
+                </Grid>
+
+                <!-- Adress data section -->
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid Grid.Column="0">
+                        <StackPanel Margin="50 0 0 0">
+                            <Label Content="Країна" Style="{StaticResource labelUserProfHeaderStyle}"/>
+                            <Label x:Name="userCountryLabel" Style="{StaticResource labelUserProfResultStyle}"/>
+                            <Label Content="Поштовий код" Style="{StaticResource labelUserProfHeaderStyle}"/>
+                            <Label x:Name="userPostCodeLabel" Style="{StaticResource labelUserProfResultStyle}"/>
+                        </StackPanel>
+                    </Grid>
+
+                    <Grid Grid.Column="1">
+                        <StackPanel Margin="20 0 0 0">
+                            <Label Content="Місто/Область" Style="{StaticResource labelUserProfHeaderStyle}"/>
+                            <Label x:Name="userLocationSecLabel" Style="{StaticResource labelUserProfResultStyle}"/>
+                        </StackPanel>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>

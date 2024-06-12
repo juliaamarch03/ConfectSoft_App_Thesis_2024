@@ -1,0 +1,137 @@
+﻿<UserControl x:Class="SweetBakeryWpfApp.View.UsedRawDataChildsView.ObtainingRawView_UR"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"    
+             xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
+             mc:Ignorable="d" d:DesignHeight="450" d:DesignWidth="800" Background="White">
+    <Grid>
+        <Grid.RowDefinitions>
+            <!--Input data section-->
+            <RowDefinition Height="190"/>
+            <!--Data Table section-->
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <!--Input Info about cakes-->
+        <Grid Grid.Row="0" Margin="0 10 0 0">
+            <StackPanel Orientation="Horizontal" Margin="0 0 30 0">
+                <StackPanel Margin="20 0 0 0">
+                    <Label Content="Код" Style="{StaticResource labelAddDataStyle}"/>
+                    <TextBox x:Name="txtCodeObtaining" PreviewTextInput="numberValidationTextBox" MaxLength="4"
+                             Style="{DynamicResource fieldStyleTextBox}" Width="60"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Vertical" Margin="40 0 0 0">
+                    <Label Content="Сировина" Style="{StaticResource labelAddDataStyle}"/>
+                    <ComboBox x:Name="comboBoxRaw" Width="140" Height="30" Style="{StaticResource MyComboBoxrawStyle}"
+                              SelectionChanged="comboBoxRawSelection_SelectionChanged"/>
+                </StackPanel>
+
+                <StackPanel Margin="40 0 0 0">
+                    <Label Content="Кількість (кг)" Style="{StaticResource labelAddDataStyle}"/>
+                    <TextBox x:Name="txtRawQuantity" MaxLength="5" Style="{DynamicResource fieldStyleTextBox}"
+                             PreviewTextInput="numberFValidationTextBox" Width="85"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Vertical" Margin="50 0 0 0" >
+                    <Label Content="Дата поставки" Style="{StaticResource labelAddDataStyle}"/>
+                    <DatePicker x:Name="dateOfObtaining" Style="{StaticResource DatePickerDefaultStyle}"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Vertical" Margin="50 0 0 0" >
+                    <Label Content="Дата обчислення" Style="{StaticResource labelAddDataStyle}"/>
+                    <DatePicker x:Name="dateFinalCalculating" Style="{StaticResource DatePickerDefaultStyle}"/>
+                </StackPanel>
+            </StackPanel>
+
+            <StackPanel Orientation="Vertical" Margin="40 90 30 0" HorizontalAlignment="Right">
+                <CheckBox x:Name="repeatedObtainingRawCheckBox" Content="повторна поставка" Margin="0 0 0 15" 
+                          FontFamily="montserrat" FontSize="12" Foreground="{StaticResource plainTextColorGrey}"/>
+                <Button x:Name="btnAddRawObtaining" Style="{StaticResource mainButton}"
+                        Content="Додати" Click="AddButton_Click"/>
+            </StackPanel>
+
+            <Label x:Name="raw_id_code" Style="{StaticResource labelAddDataStyle}" Foreground="Transparent"/>
+        </Grid>
+
+        <!--Data table section-->
+        <Grid Grid.Row="1" Margin="0 10 0 0" Height="auto" VerticalAlignment="Stretch">
+            <DataGrid x:Name="rawObtainingInfo_editDataForm"
+                      Style="{DynamicResource DataGridStyle1}" 
+                      CellStyle="{DynamicResource DataGridCellStyle1}" 
+                      ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" 
+                      RowStyle="{DynamicResource DataGridRowStyle1}" 
+                      Grid.Row="7" Height="auto" VerticalAlignment="Stretch">
+
+                <DataGrid.Columns>
+                    <DataGridTemplateColumn Header="Код" IsReadOnly="True" Width="60">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding raw_obtaining_id}" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    
+                    <DataGridTemplateColumn Header="Код сировини" IsReadOnly="True" Width="*">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding raw_id}" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <DataGridTemplateColumn Header="Назва сировини" IsReadOnly="True" Width="*">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding raw_title}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <DataGridTemplateColumn Header="Кількість (кг)" IsReadOnly="True" Width="*">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding raw_quantity}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <DataGridTemplateColumn Header="Дата поставки" IsReadOnly="True" Width="*">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding obtaining_date, StringFormat='dd.MM.yyyy'}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <DataGridTemplateColumn Header="Кінцева дата вик. " IsReadOnly="True" Width="*">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding final_calculation_date, StringFormat='dd.MM.yyyy'}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <DataGridTemplateColumn Header="Дії" IsReadOnly="True" Width="auto">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <Button Style="{StaticResource gridEditButton}" Margin="0 0 5 0" Click="EditButton_Click">
+                                        <fa:IconImage Icon="PenToSquare" Foreground="White" Style="{StaticResource gridButtonIcon}"/>
+                                    </Button>
+                                    <Button Style="{StaticResource gridRemoveButton}" Click="RemoveButton_Click">
+                                        <fa:IconImage Icon="TrashCan" Foreground="white"  Style="{StaticResource gridButtonIcon}"/>
+                                    </Button>
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+    </Grid>
+</UserControl>

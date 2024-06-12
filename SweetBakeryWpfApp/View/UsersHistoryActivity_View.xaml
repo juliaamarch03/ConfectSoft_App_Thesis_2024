@@ -1,0 +1,142 @@
+﻿<UserControl x:Class="ConfectSoft.View.UsersHistoryActivity_View"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
+             mc:Ignorable="d" d:Background="White" d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/> <!-- Search data section -->
+            <RowDefinition/> <!-- user's activity table section -->
+        </Grid.RowDefinitions>
+
+        <!-- Search data section -->
+        <Grid  Grid.Row="0">
+            <StackPanel Orientation="Horizontal">
+                <StackPanel Orientation="Vertical" Margin="25 0 0 0">
+                    <Label Content="Персональний код" Style="{StaticResource labelAddDataStyle}"/>
+                    <ComboBox x:Name="comboBoxUsersPersonalCode" Style="{StaticResource MyComboBoxUsersStyle}" Margin="0 8 0 0"
+                              SelectionChanged="comboBoxUsersPersonalCode_SelectionChanged"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Vertical" Margin="45 0 0 0">
+                    <Label Content="Повне ім'я" Style="{StaticResource labelAddDataStyle}"/>
+                    <TextBox Style="{DynamicResource fieldStyleTextBox}" FontSize="12" x:Name="txtUserFullName" Width="130" />
+                </StackPanel>
+
+                <StackPanel Orientation="Vertical" Margin="45 0 0 0">
+                    <Label Content="Дата дій" Style="{StaticResource labelAddDataStyle}"/>
+                    <DatePicker Style="{StaticResource DatePickerDefaultStyle}" x:Name="actionDate" VerticalContentAlignment="Bottom"/>
+                </StackPanel>
+
+                <StackPanel>
+                    <!-- btn seacrh data -->
+                    <Button x:Name="btnSearchUsersActivity" Style="{StaticResource dailyReportButtonsStyle}"
+                            Click="btnSearchUsersActivity_Click" Margin="20 30 0 0" Visibility="Visible">
+                        <StackPanel>
+                            <fa:IconImage Icon="Search">
+                                <fa:IconImage.Style>
+                                    <Style TargetType="{x:Type fa:IconImage}">
+                                        <Setter Property="Foreground" Value="#BAB8B6"/>
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Mode=FindAncestor, 
+                                                AncestorType={x:Type Button}}, Path=IsMouseOver}" Value="True">
+                                                <Setter Property="Foreground" Value="{StaticResource secondaryBackColor_brown}"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </fa:IconImage.Style>
+                            </fa:IconImage>
+                        </StackPanel>
+                    </Button>
+
+                    <!-- btn cancel seacrh data -->
+                    <Button x:Name="btnCancelSearchUsersActivity" Style="{StaticResource dailyReportButtonsStyle}"
+                            Click="btnCancelSearchUsersActivity_Click" Margin="20 30 0 0" Visibility="Collapsed">
+                        <StackPanel>
+                            <fa:IconImage Icon="Close">
+                                <fa:IconImage.Style>
+                                    <Style TargetType="{x:Type fa:IconImage}">
+                                        <Setter Property="Foreground" Value="#BAB8B6"/>
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Mode=FindAncestor, 
+                                                AncestorType={x:Type Button}}, Path=IsMouseOver}" Value="True">
+                                                <Setter Property="Foreground" Value="{StaticResource secondaryBackColor_brown}"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </fa:IconImage.Style>
+                            </fa:IconImage>
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+
+        <!-- user's activity table section -->
+        <Grid Grid.Row="1" Margin="10 20 0 0">
+            <DataGrid x:Name="usersActiviteTbl" Grid.Row="5"
+                      Style="{DynamicResource DataGridStyle1}" 
+                      CellStyle="{DynamicResource DataGridCellStyle1}" 
+                      ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" 
+                      RowStyle="{DynamicResource DataGridRowStyle1}">
+                <DataGrid.Columns>
+                    <DataGridTemplateColumn Header="Код" IsReadOnly="True" Width="60">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding action_id}" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <DataGridTemplateColumn Header="Опис" IsReadOnly="True" Width="*">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding action_title}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <DataGridTemplateColumn Header="Персональний код" IsReadOnly="True" Width="*">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding users_username}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <DataGridTemplateColumn Header="Повне ім'я" IsReadOnly="True" Width="*">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding user_fullname}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <DataGridTemplateColumn Header="Дата дії" IsReadOnly="True" Width="*">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding action_time, StringFormat='dd.MM.yyyy HH:mm:ss'}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <DataGridTemplateColumn Header="Дії" IsReadOnly="True" Width="auto">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <Button Style="{StaticResource gridRemoveButton}" Click="RemoveButton_Click">
+                                        <fa:IconImage Icon="TrashCan" Foreground="white"  Style="{StaticResource gridButtonIcon}"/>
+                                    </Button>
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+    </Grid>
+</UserControl>

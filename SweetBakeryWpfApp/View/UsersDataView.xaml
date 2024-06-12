@@ -1,0 +1,277 @@
+﻿<UserControl x:Class="ConfectSoft.View.UsersDataView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:toolkit="http://schemas.xceed.com/wpf/xaml/toolkit"
+             xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
+             mc:Ignorable="d" d:DesignHeight="750" d:DesignWidth="800" Background="White">
+    <ScrollViewer>
+        <Grid Margin="0 0 10 0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0" Margin="0 10 0 0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="auto"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid Grid.Column="0">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <Label Content="Персональний код працівника" Style="{StaticResource labelAddDataStyle}"/>
+                        <ComboBox x:Name="comboBoxUsersPersonalCode" Style="{StaticResource MyComboBoxUsersStyle}" Margin="20 8 0 0"
+                                  Width="150" SelectionChanged="comboBoxUsersPersonalCode_SelectionChanged"/>
+                    </StackPanel>
+                </Grid>
+
+                <Grid Grid.Column="1">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                        <Button Style="{StaticResource gridEditButton}" x:Name="activateEditModeBtn"
+                                Margin="0 0 10 0" Click="EditButton_Click">
+                            <fa:IconImage Icon="PenToSquare" Foreground="White" Style="{StaticResource gridButtonIcon}"/>
+                        </Button>
+                        <Button Style="{StaticResource gridEditButton}" x:Name="confirmEditBtn"
+                                Margin="0 0 10 0" Click="confirmEditBtn_Click" Background="#74E291" BorderBrush="#74E291"
+                                Visibility="Collapsed">
+                            <fa:IconImage Icon="check" Foreground="White" Style="{StaticResource gridButtonIcon}"/>
+                        </Button>
+                        
+                        <Button Style="{StaticResource gridEditButton}" x:Name="confirmAddingBtn"
+                                Margin="0 0 10 0" Click="confirmAddingBtn_Click" Background="#74E291" BorderBrush="#74E291"
+                                Visibility="Collapsed">
+                            <fa:IconImage Icon="check" Foreground="White" Style="{StaticResource gridButtonIcon}"/>
+                        </Button>
+                        <Button Style="{StaticResource gridEditButton}" x:Name="closeAddingMode"
+                                Margin="0 0 10 0" Click="closeAddingMode_Click" Background="#E72929" BorderBrush="#E72929"
+                                Visibility="Collapsed">
+                            <fa:IconImage Icon="Close" Foreground="White" Style="{StaticResource gridButtonIcon}"/>
+                        </Button>
+                        
+                        <Button Style="{StaticResource gridEditButton}" x:Name="closeEditingModeBtn"
+                                Margin="0 0 10 0" Click="closeEditingModeBtn_Click" Background="#E72929" BorderBrush="#E72929"
+                                Visibility="Collapsed">
+                            <fa:IconImage Icon="Close" Foreground="White" Style="{StaticResource gridButtonIcon}"/>
+                        </Button>
+                        <Button Style="{StaticResource gridEditButton}" x:Name="addNewUserBtn"
+                                Background="#7de2d1" BorderBrush="#7de2d1" Margin="0 0 10 0" Click="addNewUserBtn_Click">
+                            <fa:IconImage Icon="Add" Foreground="White" Style="{StaticResource gridButtonIcon}"/>
+                        </Button>
+                        <Button Style="{StaticResource gridRemoveButton}" x:Name="removeUserBtn"
+                                Click="RemoveButton_Click">
+                            <fa:IconImage Icon="TrashCan" Foreground="white"  Style="{StaticResource gridButtonIcon}"/>
+                        </Button>
+                    </StackPanel>
+                </Grid>
+            </Grid>
+
+            <Grid Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Border Grid.Row="0" Margin="80 20 80 20" 
+                        BorderBrush="{StaticResource plainTextColorGrey}" BorderThickness="1" CornerRadius="10">
+
+                    <Grid Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="180"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid Grid.Column="0">
+                            <StackPanel>
+                                <Ellipse x:Name="profilePicEllipse"
+                                         Height="100" Width="100" Margin="10,10,10,10">
+                                    <Ellipse.Fill>
+                                        <ImageBrush ImageSource="D:\OTHER\University\4 курс\Дипломна робота\Практична реалізація\WPF APP\SweetBakeryWpfApp\Images\UsersPics\000.png"/>
+                                    </Ellipse.Fill>
+                                </Ellipse>
+                            </StackPanel>
+                        </Grid>
+
+                        <Grid Grid.Column="1">
+                            <StackPanel Margin="0 15 0 20">
+                                <Label x:Name="userFullNameLabel" Content="Full Name"
+                                       Style="{StaticResource labelUserProfGenearalHeaderStyle}"/>
+                                <TextBox x:Name="userPositionLabel" FontWeight="Regular" IsEnabled="False" Margin="5 10 0 0"
+                                         Style="{StaticResource txtBoxUserProfResultStyle}" Visibility="Visible"/>
+                                <ComboBox Width="170" HorizontalAlignment="Left" Style="{StaticResource MyComboBoxUserRoleStyle}"
+                                          x:Name="userRoleComboBox" Margin="5 10 0 10" Visibility="Collapsed"/>
+                                <TextBox x:Name="userLocationLabel" FontWeight="Regular" IsEnabled="False" Margin="5 10 0 0"
+                                         Style="{StaticResource txtBoxUserProfResultStyle}"/>
+                            </StackPanel>
+                        </Grid>
+                    </Grid>
+                </Border>
+
+                <Border Grid.Row="1" Margin="80 0 80 0"
+                        BorderBrush="{StaticResource plainTextColorGrey}" BorderThickness="1" CornerRadius="10">
+                    <Grid Grid.Row="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+
+                        <Grid Grid.Row="0">
+                            <StackPanel Margin="50 10 0 0">
+                                <Label Content="Персональні дані" Style="{StaticResource labelUserProfGenearalHeaderStyle}"/>
+                            </StackPanel>
+                        </Grid>
+
+                        <Grid Grid.Row="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+
+                            <Grid Grid.Column="0">
+                                <StackPanel Margin="50 0 0 0">
+                                    <Label Content="Ім'я" Style="{StaticResource labelUserProfHeaderStyle}"/>
+                                    <TextBox x:Name="userFirstNameLabel" Style="{StaticResource txtBoxUserProfResultStyle}" PreviewTextInput="letterValidationTextBox"/>
+                                    <Label Content="Email адреса" Style="{StaticResource labelUserProfHeaderStyle}"/>
+                                    <TextBox x:Name="userEmailAdressLabel" Style="{StaticResource txtBoxUserProfResultStyle}"/>
+                                    <Label Content="День народження" Style="{StaticResource labelUserProfHeaderStyle}"/>
+                                    <TextBox x:Name="userBDayLabel" Style="{StaticResource txtBoxUserProfResultStyle}"/>
+                                    <toolkit:MaskedTextBox Mask="00,00,0000" Margin="5 0 0 0" x:Name="maskUserBDay"
+                                                           Foreground="{StaticResource plainTextColorGrey}"
+                                                           FontFamily="montserrat" FontSize="12" Width="auto" Height="auto"
+                                                           BorderThickness="0" Visibility="Collapsed" FontWeight="Bold"
+                                                           PreviewTextInput="numberValidationTextBox"/>
+                                </StackPanel>
+                            </Grid>
+
+                            <Grid Grid.Column="1">
+                                <StackPanel Margin="20 0 0 0">
+                                    <Label Content="Прізвище" Style="{StaticResource labelUserProfHeaderStyle}"/>
+                                    <TextBox x:Name="userLastNameLabel" Margin="5 0 50 8" 
+                                             Style="{StaticResource txtBoxUserProfResultStyle}" PreviewTextInput="letterValidationTextBox"/>
+                                    <Label Content="Номер телефону" Style="{StaticResource labelUserProfHeaderStyle}"/>
+                                    <TextBox x:Name="userPhoneNumberLabel" Margin="5 0 50 0" Style="{StaticResource txtBoxUserProfResultStyle}" PreviewTextInput="numberValidationTextBox"/>
+                                    <toolkit:MaskedTextBox Mask="(+380)00-000-00-00" Margin="5 0 50 0" x:Name="maskUserPhoneNumber"
+                                                           Foreground="{StaticResource plainTextColorGrey}"
+                                                           Style="{StaticResource txtBoxUserProfResultStyleActiveToEdit}"
+                                                           Width="auto" Height="auto" Visibility="Collapsed"
+                                                           PreviewTextInput="numberValidationTextBox"/>
+                                </StackPanel>
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                </Border>
+
+                <Border Grid.Row="2" Margin="80 20 80 20"
+                        BorderBrush="{StaticResource plainTextColorGrey}" BorderThickness="1" CornerRadius="10">
+                    <Grid Grid.Row="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+
+                        <Grid Grid.Row="0">
+                            <StackPanel Margin="50 10 0 0">
+                                <Label Content=" Адреса" Style="{StaticResource labelUserProfGenearalHeaderStyle}"/>
+                            </StackPanel>
+                        </Grid>
+
+                        <Grid Grid.Row="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+
+                            <Grid Grid.Column="0">
+                                <StackPanel Margin="50 0 0 0">
+                                    <Label Content="Країна" Style="{StaticResource labelUserProfHeaderStyle}"/>
+                                    <TextBox x:Name="userCountryLabel" Style="{StaticResource txtBoxUserProfResultStyle}" PreviewTextInput="letterValidationTextBox" Margin="5 0 0 10"/>
+                                    <Label Content="Поштовий код" Style="{StaticResource labelUserProfHeaderStyle}"/>
+                                    <TextBox x:Name="userPostCodeLabel" Style="{StaticResource txtBoxUserProfResultStyle}" MaxLength="5" Margin="5 0 0 20" />
+                                </StackPanel>
+                            </Grid>
+
+                            <Grid Grid.Column="1">
+                                <StackPanel Margin="20 0 0 0">
+                                    <Label Content="Місто/Область" Style="{StaticResource labelUserProfHeaderStyle}"/>
+                                    <TextBox x:Name="userLocationSecLabel" Margin="5 0 50 0" Style="{StaticResource txtBoxUserProfResultStyle}" 
+                                             PreviewTextInput="letterValidationWithDashTextBox"/>
+                                </StackPanel>
+                            </Grid>
+
+                        </Grid>
+                    </Grid>
+                </Border>
+
+                <Border Grid.Row="3" Margin="80 0 80 20"
+                        BorderBrush="{StaticResource plainTextColorGrey}" BorderThickness="1" CornerRadius="10">
+                    <Grid Grid.Row="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+
+                        <Grid Grid.Row="0">
+                            <StackPanel Margin="50 10 0 0">
+                                <Label Content="[Internal]" Style="{StaticResource labelUserProfGenearalHeaderStyle}"/>
+                            </StackPanel>
+                        </Grid>
+
+                        <Grid Grid.Row="1" Margin="0 0 0 15">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+
+                            <Grid Grid.Column="0">
+                                <StackPanel Margin="50 0 0 0">
+                                    <Label Content="Персональний код" Style="{StaticResource labelUserProfHeaderStyle}"/>
+
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBox x:Name="personalCode" Style="{StaticResource txtBoxUserProfResultStyle}" MaxLength="6" 
+                                                 Margin="5 0 0 0" BorderThickness="0" IsReadOnly="True" IsEnabled="False"/>
+                                        <Button x:Name="generatePersonalCode" Click="generatePersonalCode_Click" 
+                                                Style="{StaticResource buttonPasswordChange}" Visibility="Collapsed">
+                                            <fa:IconImage Icon="Refresh" Width="15" Height="15"
+                                                          Foreground="{StaticResource plainTextColorGrey}" Style="{StaticResource gridButtonIcon}"/>
+                                        </Button>
+                                    </StackPanel>
+                                    
+                                </StackPanel>
+                            </Grid>
+
+                            <Grid Grid.Column="1">
+                                <StackPanel Margin="20 0 0 0">
+                                    <Label Content="Пароль" Style="{StaticResource labelUserProfHeaderStyle}"/>
+
+                                    <StackPanel Orientation="Horizontal" Margin=" 0 0 50 0">
+                                        <TextBox x:Name="userPassword" Visibility="Collapsed" Margin="5 3 0 0"
+                                                 Style="{StaticResource txtBoxUserProfResultStyle}" 
+                                                 Width="auto" MaxLength="8"/>
+                                        <PasswordBox Margin="5 0 0 0"  x:Name="userPasswordBox" IsEnabled="False" 
+                                                     Visibility="Visible" MaxLength="8" Style="{StaticResource txtPasswordBox}" Width="auto"/>
+                                        <Button x:Name="showPassword" Click="showPassword_Click" Style="{StaticResource buttonPasswordChange}">
+                                            <fa:IconImage Icon="Eye" Width="15" Height="15"
+                                                          Foreground="{StaticResource plainTextColorGrey}" Style="{StaticResource gridButtonIcon}"/>
+                                        </Button>
+                                        <Button x:Name="hidePassword" Click="hidePassword_Click" Style="{StaticResource buttonPasswordChange}" Visibility="Collapsed">
+                                            <fa:IconImage Icon="EyeSlash" Foreground="{StaticResource plainTextColorGrey}"
+                                                           Style="{StaticResource gridButtonIcon}" Width="15" Height="15"/>
+                                        </Button>
+                                        <Button x:Name="generatePassword" Click="generatePassword_Click" 
+                                                Style="{StaticResource buttonPasswordChange}" Visibility="Collapsed">
+                                            <fa:IconImage Icon="Refresh" Width="15" Height="15"
+                                                          Foreground="{StaticResource plainTextColorGrey}" Style="{StaticResource gridButtonIcon}"/>
+                                        </Button>
+                                    </StackPanel>
+                                </StackPanel>
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                </Border>
+            </Grid>
+        </Grid>
+    </ScrollViewer>
+</UserControl>

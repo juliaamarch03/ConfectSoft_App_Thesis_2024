@@ -1,0 +1,17 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!--Login Form Title text-->
+    <Style x:Key="login_form_title_style" TargetType="TextBlock">
+
+        <!--Colors details-->
+        <Setter Property="Foreground" Value="white" />
+
+        <!--Font details-->
+        <Setter Property="FontSize" Value="12"/>
+        <Setter Property="FontWeight" Value="Regular"/>
+        <Setter Property="FontFamily" Value="Montserrat"/>
+    </Style>
+
+
+</ResourceDictionary>

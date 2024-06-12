@@ -1,0 +1,20 @@
+﻿SweetBakeryWpfApp
+
+
+winexe
+C#
+.cs
+D:\OTHER\University\4 курс\Дипломна робота\Практична реалізація\WPF APP\SweetBakeryWpfApp\obj\Debug\net5.0-windows\
+SweetBakeryWpfApp
+none
+false
+TRACE;DEBUG;NET;NET5_0;NETCOREAPP
+D:\OTHER\University\4 курс\Дипломна робота\Практична реалізація\WPF APP\SweetBakeryWpfApp\App.xaml
+241825625518
+
+46131122883
+2201341511014
+CustomControls\BindablePasswordBox.xaml;MainWindow.xaml;Styles\ButtonStyles.xaml;Styles\DataGridStyle.xaml;Styles\TextFieldsStyles.xaml;Styles\TextStyles.xaml;Styles\UIColors.xaml;View\DailyReportChildsView\BakedCakesView_DR.xaml;View\DailyReportChildsView\SentCakesView_DR.xaml;View\DailyReportChildsView\UsedRawView_DR.xaml;View\DailyReportView.xaml;View\DashboardDataView.xaml;View\Dashboard_mainConfectioner.xaml;View\EditDataChildsView\CakesInfoView_ED.xaml;View\EditDataChildsView\OrderTypeInfoView_ED.xaml;View\EditDataChildsView\RawInfoView_ED.xaml;View\EditDataChildsView\ShopsInfoView_ED.xaml;View\EditDataView.xaml;View\LoginView.xaml;View\RecipesView.xaml;View\SalaryView.xaml;View\UsedRawDataChildsView\ObtainingRawView_UR.xaml;View\UsedRawDataChildsView\UsedRawInfoView_UR.xaml;View\UsedRawView.xaml;
+
+False
+

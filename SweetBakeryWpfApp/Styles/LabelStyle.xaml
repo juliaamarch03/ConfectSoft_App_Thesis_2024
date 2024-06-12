@@ -1,0 +1,81 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!--Text Style for label header in charts on Dashboard-->
+    <Style x:Key="chartLabelHeaderStyle" TargetType="Label">
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="FontFamily" Value="Montserrat"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="Margin" Value="10 0 0 0"/>
+    </Style>
+
+    <Style x:Key="userGreetLabelHeaderStyle" TargetType="Label">
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="FontFamily" Value="Montserrat"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+    </Style>
+
+    <Style x:Key="headerSalaryTypeStyle" TargetType="Label">
+        <Setter Property="FontSize" Value="15"/>
+        <Setter Property="FontFamily" Value="Montserrat"/>
+        <Setter Property="FontWeight" Value="Light"/>
+        <Setter Property="Foreground" Value="{StaticResource plainTextColorGrey}"/>
+    </Style>
+
+
+
+    <!-- RECIPE PAGE -->
+
+    <Style x:Key="recipeTitle" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="Montserrat"/>
+        <Setter Property="FontSize" Value="30"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="Foreground" Value="{StaticResource primaryBackColorWhite2}"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+    </Style>
+
+    <Style x:Key="recipeTitleOfDescription" TargetType="Label">
+        <Setter Property="FontFamily" Value="Montserrat"/>
+        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+    </Style>
+
+    <Style x:Key="cookingTimeDesc" TargetType="Label">
+        <Setter Property="FontFamily" Value="Montserrat"/>
+        <Setter Property="FontSize" Value="11"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="Foreground" Value="{StaticResource primaryBackColorWhite2}"/>
+    </Style>
+
+    <Style x:Key="cookingTimeResult" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="Montserrat"/>
+        <Setter Property="FontSize" Value="12"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="Foreground" Value="{StaticResource primaryBackColorWhite2}"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="LayoutTransform">
+            <Setter.Value>
+                <TranslateTransform X="-17.5" Y="-17.5"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="cookingTimeEllipse" TargetType="Ellipse">
+        <Setter Property="Height" Value="45"/>
+        <Setter Property="Width" Value="45"/>
+        <Setter Property="Stroke" Value="{StaticResource primaryBackColorWhite2}"/>
+        <Setter Property="StrokeThickness" Value="0.5"/>
+        <Setter Property="Margin" Value="10 0 10 0"/>
+    </Style>
+    
+    <Style x:Key="recipeDescription" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="Montserrat"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="FontWeight" Value="Light"/>
+        <Setter Property="Foreground" Value="{StaticResource plainTextColorGrey}"/>
+        <Setter Property="Margin" Value="10 10 0 0"/>
+    </Style>
+  
+
+</ResourceDictionary>

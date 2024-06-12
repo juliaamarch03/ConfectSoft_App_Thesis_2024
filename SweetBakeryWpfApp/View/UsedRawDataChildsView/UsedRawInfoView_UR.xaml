@@ -1,0 +1,338 @@
+﻿<UserControl x:Class="SweetBakeryWpfApp.View.UsedRawDataChildsView.UsedRawInfoView_UR"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             mc:Ignorable="d" 
+             Background="White"
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+
+        <!--_____CURRENT RAW REMAINING REGION_____-->
+        <Grid Grid.Row="0"
+              Margin="0 0 0 10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0"
+                      Margin="20 20 0 0">
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Залишок сировини за поточний місяць"
+                               FontFamily="Montserrat" FontSize="15" FontWeight="Light"
+                               Foreground="{StaticResource plainTextColorGrey}"/>
+
+                        <Button x:Name="btnPrintCurMonthData"
+                                Style="{StaticResource dailyReportButtonsStyle}"
+                                Click="btnPrintCurMonthData_Click"
+                                Margin="20 0 0 5">
+                            <StackPanel>
+                                <fa:IconImage Icon="Print">
+                                    <fa:IconImage.Style>
+                                        <Style TargetType="{x:Type fa:IconImage}">
+                                            <Setter Property="Foreground" Value="#BAB8B6"/>
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Button}}, Path=IsMouseOver}" Value="True">
+                                                    <Setter Property="Foreground" Value="{StaticResource secondaryBackColor_brown}"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </fa:IconImage.Style>
+                                </fa:IconImage>
+                            </StackPanel>
+                        </Button>
+                    </StackPanel>
+                </Grid>
+            </Grid>
+
+            <!--_____CURRENT RAW REMAINING TABLE REGION_____-->
+            <Grid Grid.Row="1"
+                  Margin="20 0 20 0">
+                <DataGrid x:Name="remainingRawCurMonth"
+                      Style="{DynamicResource DataGridStyle1}" 
+                      CellStyle="{DynamicResource DataGridCellStyle1}" 
+                      ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" 
+                      RowStyle="{DynamicResource DataGridRowStyle1}" 
+                      Grid.Row="5"
+                      Margin="10 0 0 0">
+                    <DataGrid.Columns>
+                        <DataGridTemplateColumn Header="Код" IsReadOnly="True" Width="60">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding RawId}" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                        <DataGridTemplateColumn Header="Сировина" IsReadOnly="True" Width="*">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding RawTitle}" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                        <DataGridTemplateColumn Header="К-сть на місяць" IsReadOnly="True" Width="*">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding QuantityPerMonth}" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                        <DataGridTemplateColumn Header="Дата поставки" IsReadOnly="True" Width="*">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding ObtainingDate, StringFormat='dd.MM.yyyy'}" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                        <DataGridTemplateColumn Header="Кін. дата" IsReadOnly="True" Width="*">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding FinalCalculationDate, StringFormat='dd.MM.yyyy'}" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                        <DataGridTemplateColumn Header="Використано" IsReadOnly="True" Width="*">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding TotalUsed}" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                        <DataGridTemplateColumn Header="Залишок" IsReadOnly="True" Width="*">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Remainder}" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                        <DataGridTemplateColumn Header="Результат" IsReadOnly="True" Width="*">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Status}" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+        </Grid>
+
+        <!--_____CUSTOM SEARCH RAW REMAINING REGION_____-->
+        <Grid Grid.Row="1"
+              Margin="0 0 0 30">
+            <Grid>
+                <Expander Header="Залишок сировини за заданий місяць"
+                          Margin="20 10 0 0"
+                          FontFamily="Montserrat" FontSize="15" FontWeight="Light"
+                          Foreground="{StaticResource plainTextColorGrey}">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="50"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <!--_____FIELDS WITH SEARCH_____-->
+                        <Grid  Grid.Row="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="500"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+
+                            <Grid Grid.Column="0">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+
+                                <Grid Grid.Row="1"
+                                      Margin="20 0 0 0"
+                                      VerticalAlignment="Center">
+                                    <StackPanel>
+                                        <Label Content="Виберіть будь яку дату місяця, за який вам потрібно обчислити залишок."
+                                               FontFamily="Montserrat" FontSize="12" FontWeight="Light"
+                                               Foreground="{StaticResource plainTextColorGrey}"></Label>
+                                    </StackPanel>
+                                </Grid>
+                            </Grid>
+
+                            <Grid Grid.Column="1">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+
+                                <Grid Grid.Row="1">
+                                    <StackPanel Orientation="Horizontal"
+                                                HorizontalAlignment="Left">
+                                        <DatePicker x:Name="monthOfRemaining"
+                                                    SelectedDate="{x:Static sys:DateTime.Now}"
+                                                    Style="{StaticResource DatePickerDefaultStyle}"
+                                                    Margin="40,5,0,0"
+                                                    VerticalContentAlignment="Center">
+                                        </DatePicker>
+
+                                        <StackPanel VerticalAlignment="Center">
+                                            <Button x:Name="btnSearchData"
+                                                    Style="{StaticResource dailyReportButtonsStyle}"
+                                                    Click="btnSearchData_Click"
+                                                    Visibility="Visible">
+                                            <StackPanel>
+                                                <fa:IconImage Icon="Search">
+                                                    <fa:IconImage.Style>
+                                                        <Style TargetType="{x:Type fa:IconImage}">
+                                                            <Setter Property="Foreground" Value="#BAB8B6"/>
+                                                            <Style.Triggers>
+                                                                <DataTrigger Binding="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Button}}, Path=IsMouseOver}" Value="True">
+                                                                    <Setter Property="Foreground" Value="{StaticResource secondaryBackColor_brown}"/>
+                                                                </DataTrigger>
+                                                            </Style.Triggers>
+                                                        </Style>
+                                                    </fa:IconImage.Style>
+                                                </fa:IconImage>
+                                            </StackPanel>
+                                            </Button>
+
+                                            <Button x:Name="btnCancelSearchData"
+                                                    Visibility="Collapsed"
+                                                    Style="{StaticResource dailyReportButtonsStyle}"
+                                                    Click="btnCancelSearchData_Click">
+                                                <StackPanel>
+                                                    <fa:IconImage Icon="Close">
+                                                        <fa:IconImage.Style>
+                                                            <Style TargetType="{x:Type fa:IconImage}">
+                                                                <Setter Property="Foreground" Value="#BAB8B6"/>
+                                                                <Style.Triggers>
+                                                                    <DataTrigger Binding="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Button}}, Path=IsMouseOver}" Value="True">
+                                                                        <Setter Property="Foreground" Value="{StaticResource secondaryBackColor_brown}"/>
+                                                                    </DataTrigger>
+                                                                </Style.Triggers>
+                                                            </Style>
+                                                        </fa:IconImage.Style>
+                                                    </fa:IconImage>
+                                                </StackPanel>
+                                            </Button>
+                                        </StackPanel>
+
+                                        <Button x:Name="btnPrintData"
+                                                Style="{StaticResource dailyReportButtonsStyle}"
+                                                Click="btnPrintData_Click">
+                                            <StackPanel>
+                                                <fa:IconImage Icon="Print">
+                                                    <fa:IconImage.Style>
+                                                        <Style TargetType="{x:Type fa:IconImage}">
+                                                            <Setter Property="Foreground" Value="#BAB8B6"/>
+                                                            <Style.Triggers>
+                                                                <DataTrigger Binding="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Button}}, Path=IsMouseOver}" Value="True">
+                                                                    <Setter Property="Foreground" Value="{StaticResource secondaryBackColor_brown}"/>
+                                                                </DataTrigger>
+                                                            </Style.Triggers>
+                                                        </Style>
+                                                    </fa:IconImage.Style>
+                                                </fa:IconImage>
+                                            </StackPanel>
+                                        </Button>
+                                    </StackPanel>
+                                </Grid>
+                            </Grid>
+                        </Grid>
+
+                        <!--_____RESULT OF SEARCH SEARCH_____-->
+                        <Grid Grid.Row="1">
+                            <DataGrid x:Name="remainingRawCustomMonth"
+                                       Style="{DynamicResource DataGridStyle1}" 
+                                       CellStyle="{DynamicResource DataGridCellStyle1}" 
+                                       ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" 
+                                       RowStyle="{DynamicResource DataGridRowStyle1}" 
+                                       Grid.Row="5"
+                                       Margin="10 0 0 0">
+                                <DataGrid.Columns>
+                                    <DataGridTemplateColumn Header="Код" IsReadOnly="True" Width="60">
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Text="{Binding RawId}" />
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+
+                                    <DataGridTemplateColumn Header="Сировина" IsReadOnly="True" Width="*">
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Text="{Binding RawTitle}" />
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+
+                                    <DataGridTemplateColumn Header="К-сть на місяць" IsReadOnly="True" Width="*">
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Text="{Binding QuantityPerMonth}" />
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+
+
+                                    <DataGridTemplateColumn Header="Дата поставки" IsReadOnly="True" Width="*">
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Text="{Binding ObtainingDate, StringFormat='dd.MM.yyyy'}" />
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+
+                                    <DataGridTemplateColumn Header="Кін. дата" IsReadOnly="True" Width="*">
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Text="{Binding FinalCalculationDate, StringFormat='dd.MM.yyyy'}" />
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+
+                                    <DataGridTemplateColumn Header="Використано" IsReadOnly="True" Width="*">
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Text="{Binding TotalUsed}" />
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+
+                                    <DataGridTemplateColumn Header="Залишок" IsReadOnly="True" Width="*">
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Text="{Binding Remainder}" />
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+
+                                    <DataGridTemplateColumn Header="Результат" IsReadOnly="True" Width="*">
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Text="{Binding Status}" />
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </Grid>
+                    </Grid>
+                </Expander>
+            </Grid>
+        </Grid>
+    </Grid>
+</UserControl>

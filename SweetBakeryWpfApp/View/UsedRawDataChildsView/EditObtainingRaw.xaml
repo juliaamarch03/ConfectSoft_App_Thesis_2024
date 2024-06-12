@@ -1,0 +1,85 @@
+﻿<Window x:Class="ConfectSoft.View.UsedRawDataChildsView.EditObtainingRaw"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen" WindowStyle="None"
+        Background="Transparent" AllowsTransparency="True"
+        Title="EditObtainingRaw" Height="315" Width="950">
+    
+    <Border Background="#f7f4ff" BorderBrush="{StaticResource primaryBackSolidColor_darkPurple}" 
+            BorderThickness="3" CornerRadius="10">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="260"/>
+            </Grid.RowDefinitions>
+            <!--Control bar-->
+            <Grid Grid.Row="0">
+                <StackPanel x:Name="pnlControlBar" Grid.Row="0" Orientation="Horizontal"
+                            FlowDirection="RightToLeft" Background="Transparent" MouseEnter="pnlControlBar_MouseEnter"
+                            Margin="0" MouseLeftButtonDown="pnlControlBar_MouseLeftButtonDown">
+                    <Button x:Name="btnClose" Style="{StaticResource controlButton}"
+                            Tag="{StaticResource buttonColorBlack}" Click="btnClose_Click">
+                        <fa:IconImage Icon="Xmark" Style="{StaticResource controlButtonIcon}"/>
+                    </Button>
+                </StackPanel>
+            </Grid>
+
+
+            <!--Fields region-->
+            <Grid Grid.Row="1">
+                <Border Background="{StaticResource primaryBackColorWhite2}" CornerRadius="10" Margin="30 10 30 15">
+                    <StackPanel Width="800">
+                        <StackPanel Orientation="Vertical" Margin="10">
+                            <Label FontFamily="Montserrat" FontSize="20" FontWeight="Regular"
+                                   Foreground="{StaticResource plainTextColorGrey}" Content="Редагувати поставку сировини"/>
+                            <Label FontFamily="Montserrat" FontSize="12" FontWeight="Regular"
+                                   Margin="0 10 0 0" Foreground="{StaticResource plainTextColorGrey}"
+                                   Content="Зверніть увагу!  Під час редагування ви не можете змінити назву сировини та код."/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="0 10 30 0">
+                            <!--Code of obtaining raw-->
+                            <StackPanel Margin="20,0,0,0">
+                                <Label Content="Код" Style="{StaticResource labelAddDataStyle}"/>
+                                <TextBox x:Name="txtCodeObtaining" PreviewTextInput="numberValidationTextBox" Width="60"
+                                         IsReadOnly="True" MaxLength="4" Style="{DynamicResource fieldStyleTextBox}"/>
+                            </StackPanel>
+
+                            <!--Raw title-->
+                            <StackPanel Orientation="Vertical" Margin="40 0 0 0">
+                                <Label Content="Сировина" Style="{StaticResource labelAddDataStyle}"/>
+                                <TextBox x:Name="txtRawTitle" IsReadOnly="True" Width="140" 
+                                         Height="30" Style="{DynamicResource fieldStyleTextBox}"/>
+                            </StackPanel>
+
+                            <!--Raw quantity-->
+                            <StackPanel Margin="40 0 0 0">
+                                <Label Content="Кількість (кг)" Style="{StaticResource labelAddDataStyle}"/>
+                                <TextBox x:Name="txtRawQuantity" Style="{DynamicResource fieldStyleTextBox}"
+                                         PreviewTextInput="numberFValidationTextBox" MaxLength="5" Width="85"/>
+                            </StackPanel>
+
+                            <!--Date of obtaining-->
+                            <StackPanel Orientation="Vertical" Margin="50 0 0 0" >
+                                <Label Content="Дата поставки" Style="{StaticResource labelAddDataStyle}"/>
+                                <DatePicker x:Name="dateOfObtaining" Style="{StaticResource DatePickerDefaultStyle}"/>
+                            </StackPanel>
+
+                            <!--Date of calculating-->
+                            <StackPanel Orientation="Vertical" Margin="50 0 0 0" >
+                                <Label Content="Дата обчислення" Style="{StaticResource labelAddDataStyle}"/>
+                                <DatePicker x:Name="dateFinalCalculating" Style="{StaticResource DatePickerDefaultStyle}"/>
+                            </StackPanel>
+                        </StackPanel>
+
+                        <Button x:Name="btnEditRawObtaining" Style="{StaticResource mainButton}"
+                                Margin="40 15 30 0" Content="Редагувати" Click="EditButton_Click"/>
+                    </StackPanel>
+                </Border>
+            </Grid>
+        </Grid>
+    </Border>
+</Window>

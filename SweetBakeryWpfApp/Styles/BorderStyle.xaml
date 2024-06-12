@@ -1,0 +1,23 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!--Background for charts field on Dashboard page-->
+    <Style x:Key="chartBorderFieldStyle" TargetType="Border">
+        <Setter Property="Background" Value="{StaticResource dashboardPrimaryBackSolidColor_lightPurple}"/>
+        <Setter Property="BorderThickness" Value="0.5"/>
+        <Setter Property="CornerRadius" Value="10"/>
+        <Setter Property="Width" Value="440"/>
+        <Setter Property="Height" Value="250"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="BorderBrush" Value="{StaticResource primaryBackSolidColor_lightPurple}"/>
+    </Style>
+
+    <!-- USER PROFILE PAGE: Border for each section, general parametters -->
+    <Style x:Key="userProfilePageSectionBorderStyle" TargetType="Border">
+        <Setter Property="CornerRadius" Value="10"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="BorderBrush" Value="{StaticResource plainTextColorGrey}"/>
+        <Setter Property="Margin" Value="80 20 80 20"/>
+    </Style>
+
+</ResourceDictionary>

@@ -1,0 +1,265 @@
+﻿<Window x:Class="SweetBakeryWpfApp.View.Dashboard_mainConfectioner"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SweetBakeryWpfApp.View"
+        xmlns:local1="clr-namespace:ConfectSoft.View"
+        xmlns:viewModel="clr-namespace:SweetBakeryWpfApp.ViewModel"
+        xmlns:viewMod ="clr-namespace:ConfectSoft.ViewModel.NavigationMenuChilds"
+        xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
+        Icon="D:\OTHER\University\4 курс\Дипломна робота\Практична реалізація\WPF APP\SweetBakeryWpfApp\Images\logo_app_ico.ico" 
+        xmlns:svgc1="http://sharpvectors.codeplex.com/svgc/"
+        mc:Ignorable="d" Title="Dashboard_mainConfectioner" Height="700" Width="1300"
+        WindowStartupLocation="CenterScreen" WindowStyle="None" Background="Transparent" AllowsTransparency="True">
+        
+    <Window.DataContext>
+          <viewModel:Dashboard_ViewModel_mainConfectioner/>
+    </Window.DataContext>
+
+    <Window.Resources>
+        <DataTemplate DataType="{x:Type viewModel:DashboardDataViewModel}">
+            <local:DashboardDataView/>
+        </DataTemplate>
+        
+        <DataTemplate DataType="{x:Type viewModel:DailyReportViewModel}">
+            <local:DailyReportView/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type viewModel:EditDataViewModel}">
+            <local:EditDataView/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type viewModel:SalaryViewModel}">
+            <local:SalaryView/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type viewModel:RecipesViewModel}">
+            <local:RecipesView/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type viewModel:UsedRawViewModel}">
+            <local:UsedRawView/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type viewMod:UserProfileViewModel}">
+            <local1:UserProfileView/>
+        </DataTemplate>
+    </Window.Resources>
+
+    <Border CornerRadius="10" BorderThickness="1">
+        <Border.Background>
+            <SolidColorBrush Color="{StaticResource primaryBackColor_light}"></SolidColorBrush>
+        </Border.Background>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <!--Navigation menu-->
+                        <ColumnDefinition Width="230"/>
+                        <!--Context section-->
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                     <!--Navigation Menu-->
+                     <Border CornerRadius="5 0 0 5" Grid.Column="0">
+                            <Border.Background>
+                                <SolidColorBrush Color="{StaticResource primaryBackColor_light}"></SolidColorBrush>
+                            </Border.Background>
+
+                        <StackPanel>
+                            <!--Logo-->
+                            <StackPanel Orientation="Horizontal" Height="35" Margin="15,25,40,20">
+
+                                <svgc1:SvgViewbox Source="D:\OTHER\University\4 курс\Дипломна робота\Практична реалізація\WPF APP\SweetBakeryWpfApp\Images\applogo.svg"/>
+                                <TextBlock Text="ConfectSoft" VerticalAlignment="Center" Margin="10 0 0 0"
+                                           Foreground="#450070" FontFamily="montserrat" FontWeight="Medium" FontSize="20"/>
+                            </StackPanel>
+
+                            <!--Menu Buttons-->
+                            
+                            <!--Dashboard-->
+                            <RadioButton Style="{StaticResource menuButton}"
+                                         Tag="{StaticResource secondaryBackColor_brown}"
+                                         Command="{Binding ShowUserProfileViewCommand}">
+                                <StackPanel Orientation="Horizontal">
+                                    <fa:IconImage Icon="UserAlt" Style="{StaticResource menuButtonIcon}"/>
+                                    <TextBlock Text="Профіль" Style="{StaticResource menuButtonText}"/>
+                                </StackPanel>
+                            </RadioButton>
+                            
+                            <!--Dashboard-->
+                            <RadioButton Style="{StaticResource menuButton}"
+                                         Tag="{StaticResource secondaryBackColor_brown}"
+                                         Command="{Binding ShowDashboardDataViewCommand}">
+                                <StackPanel Orientation="Horizontal">
+                                    <fa:IconImage Icon="Microsoft" Style="{StaticResource menuButtonIcon}"/>
+                                    <TextBlock Text="Головна" Style="{StaticResource menuButtonText}"/>
+                                </StackPanel>
+                            </RadioButton>
+
+                            <!--Daily Report-->
+                            <RadioButton Style="{StaticResource menuButton}"
+                                         Tag="{StaticResource secondaryBackColor_brown}"
+                                         Command="{Binding ShowDailyReportViewCommand}">
+                                <StackPanel Orientation="Horizontal">
+                                    <fa:IconImage Icon="FilePen" Style="{StaticResource menuButtonIcon}"/>
+                                    <TextBlock Text="Денний звіт" Style="{StaticResource menuButtonText}"/>
+                                </StackPanel>
+                             </RadioButton>
+
+                            <!--Used raw-->
+                            <RadioButton Style="{StaticResource menuButton}"
+                                         Tag="{StaticResource secondaryBackColor_brown}"
+                                         Command="{Binding ShowUsedRawViewCommand}"
+                                         x:Name="rdBtnRaw">
+                                <StackPanel Orientation="Horizontal">
+                                    <fa:IconImage Icon="CartFlatbed" Style="{StaticResource menuButtonIcon}"/>
+                                    <TextBlock Text="Сировина" Style="{StaticResource menuButtonText}"/>
+                                </StackPanel>
+                            </RadioButton>
+
+                            <!--Edit data-->
+                            <RadioButton Style="{StaticResource menuButton}"
+                                         Tag="{StaticResource secondaryBackColor_brown}"
+                                         Command="{Binding ShowEditDataViewCommand}"
+                                         x:Name="rdBtnEditData">
+                                <StackPanel Orientation="Horizontal">
+                                    <fa:IconImage Icon="PenClip" Style="{StaticResource menuButtonIcon}"/>
+                                    <TextBlock Text="Редагувати дані" Style="{StaticResource menuButtonText}"/>
+                                </StackPanel>
+                            </RadioButton>
+
+                            <!--Salary-->
+                            <RadioButton Style="{StaticResource menuButton}"
+                                         Tag="{StaticResource secondaryBackColor_brown}"
+                                         Command="{Binding ShowSalaryDataViewCommand}">
+                                <StackPanel Orientation="Horizontal">
+                                    <fa:IconImage Icon="MoneyBills" Style="{StaticResource menuButtonIcon}"></fa:IconImage>
+                                    <TextBlock Text="Зарплата" Style="{StaticResource menuButtonText}"/>
+                                </StackPanel>
+                            </RadioButton>
+
+                            <!--Recipes-->
+                            <RadioButton Style="{StaticResource menuButton}"
+                                         Tag="{StaticResource secondaryBackColor_brown}"
+                                         Command="{Binding ShowRecipesViewCommand}">
+                                <StackPanel Orientation="Horizontal">
+                                   <fa:IconImage Icon="CakeCandles" Style="{StaticResource menuButtonIcon}"/>
+                                    <TextBlock Text="Рецепти" Style="{StaticResource menuButtonText}"/>
+                                </StackPanel>
+                            </RadioButton>
+                
+                            
+                        </StackPanel>             
+                     </Border>
+
+                    <!--Main Section-->
+                    <Border CornerRadius="50,10,10,50" Grid.Column="1">
+                        <Border.Background>
+                            <SolidColorBrush Color="{StaticResource primaryBackColorWhite}"></SolidColorBrush>
+                        </Border.Background>
+
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <!--Control bar-->
+                                <RowDefinition Height="25"/>
+                                <!--Header / Caption-->
+                                <RowDefinition Height="35"/>
+                                <!--Content section / Child views-->
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+
+                            <!--Control bar-->
+                            <StackPanel x:Name="pnlControlBar" Grid.Row="0"
+                                        Orientation="Horizontal"
+                                        FlowDirection="RightToLeft"
+                                        Background="Transparent"
+                                        Margin="0,0,5,0"
+                                        MouseLeftButtonDown="pnlControlBar_MouseLeftButtonDown"
+                                        MouseEnter="pnlControlBar_MouseEnter">
+
+                                <Button x:Name="btnClose"
+                                        Style="{StaticResource controlButton}"
+                                        Tag="{StaticResource buttonColorBlack}"
+                                        Click="btnClose_Click">
+                                    <fa:IconImage Icon="Xmark" Style="{StaticResource controlButtonIcon}"/>
+                                </Button>
+
+                                <Button x:Name="btnMaximize"
+                                        Style="{StaticResource controlButton}"
+                                        Tag="{StaticResource buttonColorBlack}"
+                                        Click="btnMaximize_Click">
+                                    <fa:IconImage Icon="Square" Style="{StaticResource controlButtonIcon}"/>
+                                </Button>
+
+                                <Button x:Name="btnMinimize"
+                                        Style="{StaticResource controlButton}"
+                                        Tag="{StaticResource buttonColorBlack}"
+                                        Click="btnMinimize_Click">
+                                    <fa:IconImage Icon="WindowMinimize" Style="{StaticResource controlButtonIcon}"/>
+                                </Button>
+                            </StackPanel>
+
+                            <!--Header / Caption-->
+                            <Grid Grid.Row="1">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+
+                                <!--Caption-->
+                                <StackPanel Grid.Column="0" Orientation="Horizontal" VerticalAlignment="Center">
+                                    <fa:IconImage Icon="{Binding Icon}" Height="20" Width="20"
+                                                  Foreground="{StaticResource plainTextColorBlack}"
+                                                  Margin="35,0,10,0"/>
+                                    <TextBlock Text="{Binding Caption}"
+                                               FontSize="18" FontWeight="Regular" FontFamily="Montserrat"
+                                               Foreground="{StaticResource plainTextColorBlack}"/>
+                                </StackPanel>
+
+                                <!--User options-->
+                                <StackPanel Grid.Column="1" Orientation="Horizontal" FlowDirection="RightToLeft" 
+                                            VerticalAlignment="Center" Margin="0,0,20,0">
+
+                                    <Button x:Name="btnSwitchUser" Style="{StaticResource dailyReportButtonsStyle}"
+                                            Click="btnSwitchUser_Click" VerticalAlignment="Center">
+                                        <StackPanel>
+                                            <fa:IconImage Icon="Repeat">
+                                                <fa:IconImage.Style>
+                                                    <Style TargetType="{x:Type fa:IconImage}">
+                                                        <Setter Property="Foreground" Value="LightGray"/>
+                                                        <Setter Property="VerticalAlignment" Value="Center"/>
+                                                        <Setter Property="Width" Value="18"/>
+                                                        <Setter Property="Margin" Value="0 0 0 5"/>
+                                                        <Style.Triggers>
+                                                            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Mode=FindAncestor, 
+                                                                AncestorType={x:Type Button}}, Path=IsMouseOver}" Value="True">
+                                                                <Setter Property="Foreground" Value="{StaticResource secondaryBackColor_brown}"/>
+                                                            </DataTrigger>
+                                                        </Style.Triggers>
+                                                    </Style>
+                                                </fa:IconImage.Style>
+                                            </fa:IconImage>
+                                        </StackPanel>
+                                    </Button>
+
+                                    <TextBlock x:Name="userNameData" FontSize="12" FontWeight="Regular" FontFamily="Montserrat"
+                                               Margin="5 0 0 0" VerticalAlignment="Center"/>
+
+                                    <Ellipse x:Name="userProfPicEllipse" Height="35" Width="35" Margin="10,0,10,0"
+                                             Stroke="{StaticResource primaryBackColorWhite2}" StrokeThickness="1">
+                                        <Ellipse.Fill>
+                                            <ImageBrush ImageSource="D:\OTHER\University\4 курс\Дипломна робота\Практична реалізація\WPF APP\SweetBakeryWpfApp\Images\UsersPics\000.png"/>
+                                        </Ellipse.Fill>
+                                    </Ellipse>
+                                </StackPanel>
+                            </Grid>
+
+                            <!--Content section / Child views-->
+                            <Border Grid.Row="2" Margin="25" CornerRadius="30" Background="{StaticResource primaryBackColorWhite2}">
+                                <ContentControl Content="{Binding CurrentChildView}"/>
+                            </Border>
+                        </Grid>
+                    </Border>
+                </Grid>
+    </Border>
+</Window>

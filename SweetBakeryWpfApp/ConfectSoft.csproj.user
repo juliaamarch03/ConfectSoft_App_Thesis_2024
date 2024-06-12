@@ -1,0 +1,256 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup />
+  <ItemGroup>
+    <ApplicationDefinition Update="App.xaml">
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="CustomControls\BindablePasswordBox.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\AddReportView_BakedCakes.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\DailyReportChildsView\AddSentCakesView_DR.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\DailyReportChildsView\BakedCakesView_DR.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\DailyReportChildsView\EditBakedCakesReportView_DR.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\DailyReportChildsView\EditUsedRawDataView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\DailyReportChildsView\EditUsedRawView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\DailyReportView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\DashboardDataView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\Dashboard_Admin.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\Dashboard_Confectioner.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\Dashboard_mainConfectioner.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\EditCakesInfoActionField_ED.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\EditData2cpWindow_ED.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\EditDataChildsView\CakesInfoView_ED.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\EditDataChildsView\OrderTypeInfoView_ED.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\EditDataChildsView\RawInfoView_ED.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\EditDataChildsView\ShopsInfoView_ED.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\EditDataView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\EditRawInfoActionFieldView_Ed.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\EditShopInfoActionFieldView_ED.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\LoginView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\RecipePage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\RecipesView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\SalaryView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\DailyReportChildsView\SentCakesView_DR.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\SwitchUserRequestWindowView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\UsedRawDataChildsView\EditObtainingRaw.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\UsedRawDataChildsView\ObtainingRawView_UR.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\UsedRawDataChildsView\UsedRawInfoView_UR.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\UsedRawView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\DailyReportChildsView\UsedRawView_DR.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\UserProfileView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\UsersDataView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\UsersHistoryActivity_View.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="CustomControls\BindablePasswordBox.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Styles\BorderStyle.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Styles\ButtonStyles.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Styles\DataGridStyle.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Styles\DatePickerStyle.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Styles\DictionaryContainingScrollbarStyle.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Styles\ImagesPath.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Styles\LabelStyle.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Styles\StackPanelStyle.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Styles\TextFieldsStyles.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Styles\TextStyles.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Styles\UIColors.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\AddReportView_BakedCakes.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\DailyReportChildsView\AddSentCakesView_DR.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\DailyReportChildsView\BakedCakesView_DR.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\DailyReportChildsView\EditBakedCakesReportView_DR.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\DailyReportChildsView\EditUsedRawDataView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\DailyReportChildsView\EditUsedRawView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\DailyReportView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\DashboardDataView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\Dashboard_Admin.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\Dashboard_Confectioner.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\Dashboard_mainConfectioner.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\EditCakesInfoActionField_ED.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\EditData2cpWindow_ED.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\EditDataChildsView\CakesInfoView_ED.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\EditDataChildsView\OrderTypeInfoView_ED.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\EditDataChildsView\RawInfoView_ED.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\EditDataChildsView\ShopsInfoView_ED.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\EditDataView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\EditRawInfoActionFieldView_Ed.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\EditShopInfoActionFieldView_ED.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\LoginView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\RecipePage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\RecipesView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\SalaryView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\DailyReportChildsView\SentCakesView_DR.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\SwitchUserRequestWindowView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\UsedRawDataChildsView\EditObtainingRaw.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\UsedRawDataChildsView\ObtainingRawView_UR.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\UsedRawDataChildsView\UsedRawInfoView_UR.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\UsedRawView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\DailyReportChildsView\UsedRawView_DR.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\UserProfileView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\UsersDataView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\UsersHistoryActivity_View.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+</Project>

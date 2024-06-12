@@ -1,0 +1,59 @@
+﻿<Window x:Class="ConfectSoft.View.SwitchUserRequestWindowView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        WindowStyle="None" WindowStartupLocation="CenterScreen" AllowsTransparency="True"
+        FontFamily="Montserrat" Title="SwitchUserRequestWindowView" Height="170" Width="500"
+        Background="Transparent">
+    
+    <Border CornerRadius="15" Background="White" BorderBrush="{StaticResource MyGradientBrush}" BorderThickness="5">
+        <Grid>
+            <Grid x:Name="switchUserModeGrid" Visibility="Collapsed">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0">
+                    <Label Content="Змінити користувача?" HorizontalAlignment="Center" 
+                           VerticalAlignment="Bottom" Margin="0 0 0 10" FontSize="16"/>
+                </Grid>
+
+                <Grid Grid.Row="1" Margin="0 10 0 0">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <Button x:Name="swithUserBtnConfect" Click="swithUserBtnConfect_Click"
+                                Content="Змінити" Style="{StaticResource requestBtn}" Visibility="Collapsed"/>
+
+                        <Button x:Name="swithUserBtnAdmin" Click="swithUserBtnAdmin_Click"
+                                Content="Змінити" Style="{StaticResource requestBtn}" Visibility="Collapsed"/>
+
+                        <Button x:Name="cancelSwitchUser" Click="cancelSwitchUser_Click" Content="Відмінити" 
+                                Style="{StaticResource mainButton}" Margin="30 0 0 0"/>
+                    </StackPanel>
+                </Grid>
+            </Grid>
+
+            <Grid x:Name="closeAppModeGrid" Visibility="Collapsed">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0">
+                    <Label Content="Вийти з програми?" HorizontalAlignment="Center" 
+                           VerticalAlignment="Bottom" Margin="0 0 0 10" FontSize="16"/>
+                </Grid>
+
+                <Grid Grid.Row="1" Margin="0 10 0 0">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <Button x:Name="closeAppBtn" Click="closeAppBtn_Click"
+                                Content="Вийти" Style="{StaticResource requestBtn}" Visibility="Collapsed"/>
+
+                        <Button x:Name="cancelClosingApp" Click="cancelClosingApp_Click" Content="Відмінити" 
+                                Style="{StaticResource mainButton}" Margin="30 0 0 0"/>
+                    </StackPanel>
+                </Grid>
+            </Grid>
+   
+        </Grid>
+    </Border> 
+</Window>

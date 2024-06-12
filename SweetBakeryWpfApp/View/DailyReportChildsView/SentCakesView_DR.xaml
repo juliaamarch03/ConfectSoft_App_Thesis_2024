@@ -1,0 +1,224 @@
+﻿<!--    WINDOW "TAB: SENT CAKES REPORT FULL INFO    -->
+<UserControl x:Class="SweetBakeryWpfApp.View.SentCakesView_DR"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
+             Background="white" mc:Ignorable="d" d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0"
+              Margin="0 10 0 0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="180"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="25"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0" Width="170" HorizontalAlignment="Left">
+                    <StackPanel>
+                        <Label Content="Дата відправлення"
+                               Style="{StaticResource labelAddDataStyle}"
+                               Margin="40 5 0 0"/>
+                    </StackPanel>
+                </Grid>
+
+                <Grid Grid.Row="1" HorizontalAlignment="Left">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                        <DatePicker x:Name="dateOfBaking"
+                                    Style="{StaticResource DatePickerDefaultStyle}"
+                                    VerticalContentAlignment="Center" Margin="40,0,0,0"/>
+                    </StackPanel>
+                </Grid>
+            </Grid>
+
+            <Grid Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Bottom" 
+                  Margin="0 0 0 10">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Grid Grid.Column="0">
+                    <StackPanel>
+                        <Button x:Name="btnSearchData"
+                                Style="{StaticResource dailyReportButtonsStyle}"
+                                Click="btnSearchData_Click">
+                            <StackPanel>
+                                <fa:IconImage Icon="Search">
+                                    <fa:IconImage.Style>
+                                        <Style TargetType="{x:Type fa:IconImage}">
+                                            <Setter Property="Foreground" Value="#BAB8B6"/>
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Button}}, Path=IsMouseOver}" Value="True">
+                                                    <Setter Property="Foreground" Value="{StaticResource secondaryBackColor_brown}"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </fa:IconImage.Style>
+                                </fa:IconImage>
+                            </StackPanel>
+                        </Button>
+
+                        <Button x:Name="btnCancelSearchData"
+                                Style="{StaticResource dailyReportButtonsStyle}"
+                                Click="btnCancelSearchData_Click"
+                                Visibility="Collapsed">
+                            <StackPanel>
+                                <fa:IconImage Icon="close">
+                                    <fa:IconImage.Style>
+                                        <Style TargetType="{x:Type fa:IconImage}">
+                                            <Setter Property="Foreground" Value="#BAB8B6"/>
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Button}}, Path=IsMouseOver}" Value="True">
+                                                    <Setter Property="Foreground" Value="{StaticResource secondaryBackColor_brown}"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </fa:IconImage.Style>
+                                </fa:IconImage>
+                            </StackPanel>
+                        </Button>
+                    </StackPanel>
+                </Grid>
+
+                <Grid Grid.Column="1">
+                    <StackPanel>
+                        <Button x:Name="btnPrintData"
+                                Style="{StaticResource dailyReportButtonsStyle}"
+                                Click="btnPrintData_Click">
+                            <StackPanel>
+                                <fa:IconImage Icon="Print">
+                                    <fa:IconImage.Style>
+                                        <Style TargetType="{x:Type fa:IconImage}">
+                                            <Setter Property="Foreground" Value="#BAB8B6"/>
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Button}}, Path=IsMouseOver}" Value="True">
+                                                    <Setter Property="Foreground" Value="{StaticResource secondaryBackColor_brown}"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </fa:IconImage.Style>
+                                </fa:IconImage>
+                            </StackPanel>
+                        </Button>
+                    </StackPanel>
+                </Grid>
+            </Grid>
+        </Grid>
+
+        <Grid Grid.Row="0"
+              Height="50" Width="150"
+              HorizontalAlignment="Right" Margin="0 0 60 0">
+            <StackPanel>
+                <Button x:Name="btnAddSentCakesReport"
+                        Style="{StaticResource mainButton}"
+                        Margin="0 5 0 0" Content="Додати звіт"
+                        Click="btnAddSentCakesReport_Click"/>
+            </StackPanel>
+        </Grid>
+
+        <!--Table Region-->
+        <Grid Grid.Row="1">
+            <DataGrid x:Name="bakedCakesReport_DailyReportForm"
+                      Style="{DynamicResource DataGridStyle1}" 
+                      CellStyle="{DynamicResource DataGridCellStyle1}" 
+                      ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" 
+                      RowStyle="{DynamicResource DataGridRowStyle1}" 
+                      Grid.Row="5">
+                <DataGrid.Resources>
+                    <Style TargetType="DataGridRow">
+                        <Style.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter Property="Foreground" Value="{StaticResource plainTextColorGrey}"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </DataGrid.Resources>
+
+                <DataGrid.Columns>
+                    <DataGridTemplateColumn Header="Код" IsReadOnly="True" Width="70">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding DailyReportId}" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <DataGridTemplateColumn Header="Назва" IsReadOnly="True" Width="120">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding CakeTitle}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <DataGridTemplateColumn Header="К-сть (кг)" IsReadOnly="True" Width="120">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding QuantityKg}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <DataGridTemplateColumn Header="Тип замовлення" IsReadOnly="True" Width="*">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding OrderType}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <DataGridTemplateColumn Header="Магазин" IsReadOnly="True" Width="*">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Shop}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <DataGridTemplateColumn Header="Дата відправлення" IsReadOnly="True" Width="*">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding SendDate, StringFormat='dd.MM.yyyy'}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <DataGridTemplateColumn Header="Статус" IsReadOnly="True" Width="*">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Status}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <DataGridTemplateColumn Header="Дії" IsReadOnly="True" Width="auto">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <Button Style="{StaticResource gridRemoveButton}" Click="RemoveButton_Click">
+                                        <fa:IconImage Icon="TrashCan" Foreground="white"  Style="{StaticResource gridButtonIcon}"/>
+                                    </Button>
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+    </Grid>
+</UserControl>
